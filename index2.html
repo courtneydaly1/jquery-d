@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <form id='form'>
-            <input type="text" id="title" placeholder="Movie Title"/>
-            <input type="number" min="0" max="10"  id="rating"/>
-            <button type="submit">Submit!</button>
-        </form>
+      <form id="form">
+        <input type="text" id="title" placeholder="Movie Title" />
+        <input type="number" min="0" max="10" id="rating" />
+        <button type="submit" id="submit">Submit!</button>
+      </form>
     </div>
-    
-    <!--Movie Titles with be appebded here-->
+
+    <!--Movie Titles with be appended here-->
     <div id="movie-list"></div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script>
-    $('form').on('submit', function(){
-        $('').append($('title'))
-    })
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
-    </script>
-</body>
+    //These are not staying appended. I only see them attach for one second and then they clear.
+    <script>
+        $('#submit').on('click', function(){
+            $('#movie-list').append($('<li>', {text: "$('#text').innerText"})).append(`"Rating = $("#rating").value"`).append($("<button id='remove'>'Remove'</button>"))
+        });
+        $('#remove').on("click", function(){
+            $('#remove').remove();
+        })
+
+        if($('#movie-list').length <= 2){
+            return
+        };
+        // I do not know how to sort alphabetically by title or by highest or lowest rating.
+      </script>
+  </body>
 </html>
